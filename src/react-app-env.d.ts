@@ -11,4 +11,9 @@ export interface products {
     image: string;
     
   }
+
+  
+export interface DetailProduct {
+  detail:Array<products>
+}
   

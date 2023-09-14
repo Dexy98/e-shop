@@ -1,7 +1,7 @@
 // store.tsx
 import { configureStore } from '@reduxjs/toolkit';
 import { api } from './features/apiSlice';
-import { details } from './features/details';
+import  {details}  from './features/details';
 
 const store = configureStore({
   reducer: {

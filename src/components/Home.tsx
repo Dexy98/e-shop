@@ -8,7 +8,7 @@ import Header from './Header';
 
 const Home: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState<string>('');
-  const { data, isLoading } = useGetProductsQuery();
+  const { data, isLoading, error } = useGetProductsQuery();
 
 
   const handleSearch = (value: string) => {
@@ -27,7 +27,7 @@ const Home: React.FC = () => {
           
           ))}
 
-      {isLoading ? <h1>Loading...</h1>  : data?.map(product => (
+      {isLoading ? <h1>Loading...</h1> : error ? <p>Erorre...</p> : data?.map(product => (
         <ProductCard  key={product.id} prop={product}/> 
         ))}
         </ul>

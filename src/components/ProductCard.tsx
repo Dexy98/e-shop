@@ -3,11 +3,15 @@ import { products } from '../react-app-env'
 import { Link } from 'react-router-dom'
 import DetailProduct from './DetailProduct'
 
+import { useDispatch } from "react-redux";
+import { descriptionItem } from "../Redux/features/details";
+
 const ProductCard = ({ prop }: { prop: products }) => {
     const [selectedProduct, setSelectedProduct] = useState<products | null>(null);
-
+    const dispatch = useDispatch()
     const handleProductClick = (product:products) => {
         setSelectedProduct(product);
+        dispatch(descriptionItem(product))
       };
     return (
 
