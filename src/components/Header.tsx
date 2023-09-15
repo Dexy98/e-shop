@@ -19,7 +19,7 @@ const Header: React.FC = () => {
     dispatch(setSearchTerm(value));
   };
 
-  const quantity = useSelector((state: RootState) => state.cartSlice.cart[0].quantity)
+  const quantity = useSelector((state: RootState) => state.cartSlice.cart[0]?.quantity || 0)
 
   return (
     <div className='w-full h-20 bg-gray-900 text-white flex items-center justify-between'>
