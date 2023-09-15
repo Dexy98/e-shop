@@ -13,6 +13,7 @@ const ProductCard = ({ prop }: { prop: products }) => {
         setSelectedProduct(product);
         dispatch(descriptionItem(product))
       };
+      
     return (
 
         <li 

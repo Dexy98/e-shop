@@ -2,11 +2,15 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { api } from './features/apiSlice';
 import  {details}  from './features/details';
+import { cartSlice } from './features/cart';
+import {searchValue} from './features/searchValue';
 
 const store = configureStore({
   reducer: {
     [api.reducerPath]: api.reducer,
-    [details.name]: details.reducer
+    [searchValue.name]: searchValue.reducer,
+    [details.name]: details.reducer,
+    [cartSlice.name]: cartSlice.reducer
   },
   middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(api.middleware),
 });

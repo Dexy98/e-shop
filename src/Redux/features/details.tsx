@@ -11,7 +11,7 @@ export const details = createSlice({
     initialState,
     reducers: {
         descriptionItem(state,action: PayloadAction<products>){
-            state.detail.push(action.payload)
+            state.detail = [action.payload];
         }
     },
 })
