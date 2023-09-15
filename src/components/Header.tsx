@@ -5,6 +5,11 @@ import { Link } from "react-router-dom";
 import { BiCart } from "react-icons/bi";
 import { useDispatch } from 'react-redux';
 import { setSearchTerm } from '../Redux/features/searchValue';
+import { useSelector } from "react-redux";
+import { RootState } from '../Redux/store';
+
+
+
 
 const Header: React.FC = () => {
   const [value, setValue] = useState<string>('');
@@ -13,6 +18,8 @@ const Header: React.FC = () => {
   const handleSearch = () => {
     dispatch(setSearchTerm(value));
   };
+
+  const quantity = useSelector((state: RootState) => state.cartSlice.cart[0].quantity)
 
   return (
     <div className='w-full h-20 bg-gray-900 text-white flex items-center justify-between'>
@@ -34,9 +41,15 @@ const Header: React.FC = () => {
         />
         <button onClick={handleSearch}>Cerca</button>
       </div>
-      <Link to='/carrello'>
-        <i className='text-4xl'><BiCart /></i>
-      </Link>
+      <div className="flex items-center gap-1">
+        <div className="w-8 h-8 flex items-center justify-center bg-red-800 rounded-full text-white">
+          {quantity}
+        </div>
+        <Link to='/carrello'>
+          <i className='text-4xl'><BiCart /></i>
+        </Link>
+      </div>
+
     </div>
   );
 };
