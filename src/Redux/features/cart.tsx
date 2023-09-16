@@ -14,15 +14,29 @@ export const cartSlice = createSlice({
     reducers: {
         addToCart(state,action: PayloadAction<products>){
             const itemIndex = state.cart.findIndex(item => item.id === action.payload.id)
+            
             if(itemIndex >= 0){
                 state.cart[itemIndex].quantity += action.payload.quantity
             } else {
                 const tempProduct = {...action.payload , quantity: action.payload.quantity}
                 state.cart.push(tempProduct)
             }
+            localStorage.setItem('cartslice' , JSON.stringify(state))
+        },
+        removeFromCart(state, action: PayloadAction<number>){
+            const itemIndex = state.cart.findIndex(item => item.id === action.payload)
+            if(itemIndex >= 0){
+                state.cart[itemIndex].quantity -= 1;
+                if(state.cart[itemIndex].quantity === 0) {
+                    state.cart.splice(itemIndex, 1);
+                }
+            }
         }
+
+
+
     },
 })
 
 
-export const {addToCart} = cartSlice.actions
+export const {addToCart, removeFromCart} = cartSlice.actions

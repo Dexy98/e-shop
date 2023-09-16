@@ -18,7 +18,7 @@ const Home: React.FC = () => {
 
 
   const cerca = useSelector((state:Search) => state.searchValue.searchTerm);
-  console.log(cerca);
+
   
   const filtraPerTitolo = data?.filter(product => 
     product.title && 
@@ -28,8 +28,7 @@ const Home: React.FC = () => {
     product.title.toLowerCase().includes(cerca.toLowerCase())
     
     );
-    console.log(cerca);
-    console.log(filtraPerTitolo);
+
     
   return ( 
     <>

@@ -19,12 +19,12 @@ const Header: React.FC = () => {
     dispatch(setSearchTerm(value));
   };
 
-  const quantity = useSelector((state: RootState) => state.cartSlice.cart[0]?.quantity || 0)
+  const quantity = useSelector((state: RootState) =>  state.cartSlice.cart.reduce((total, item) => total + item.quantity, 0))
 
   return (
-    <div className='w-full h-20 bg-gray-900 text-white flex items-center justify-between'>
-      <div>
-        Header logo
+    <div className='w-full h-20 bg-gray-900 text-white flex items-center justify-between overflow-hidden'>
+      <div className=' mx-5 max-sm:hidden'>
+        <Link to="/">Header logo</Link>
       </div>
       <div>
         <input
@@ -41,14 +41,14 @@ const Header: React.FC = () => {
         />
         <button onClick={handleSearch}>Cerca</button>
       </div>
-      <div className="flex items-center gap-1">
+      <div className="flex items-center gap-1 mx-5">
         <div className="w-8 h-8 flex items-center justify-center bg-red-800 rounded-full text-white">
           {quantity}
         </div>
         <Link to='/carrello'>
           <i className='text-4xl'><BiCart /></i>
         </Link>
-      </div>
+      </div >
 
     </div>
   );
