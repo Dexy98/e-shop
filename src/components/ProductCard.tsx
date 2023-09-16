@@ -15,7 +15,7 @@ const ProductCard = ({ prop }: { prop: products }) => {
     };
 
     return (
-        <Link onClick={() => handleProductClick(prop)} to={`/detail/${prop.id}`}>
+        <Link onClick={() => handleProductClick(prop)} to={`/e-shop/detail/${prop.id}`}>
             <li
                 key={prop.id}
                 className=' mx-auto bg-[#F2F2F2] border border-pink-60 |  w-52 flex flex-col justify-between relative selection '>

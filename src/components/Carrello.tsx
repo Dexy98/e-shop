@@ -63,7 +63,7 @@ const Carrello = () => {
       ) : (
         <>
         <p className="text-xl">Il carrello è vuoto.</p>
-        <Link to='/'><button className=' bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded'>Home</button></Link>
+        <Link to='/e-shop/'><button className=' bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded'>Home</button></Link>
         </>
       )}
     </div>
