@@ -1,5 +1,7 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import { Cart, products } from "../../react-app-env";
+//notifica
+import { toast } from 'react-toastify';
 
 
 const initialState:Cart = {
@@ -21,6 +23,16 @@ export const cartSlice = createSlice({
                 const tempProduct = {...action.payload , quantity: action.payload.quantity}
                 state.cart.push(tempProduct)
             }
+            toast.success('✔ Aggiunto', {
+                position: "bottom-left",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+                });
             localStorage.setItem('cartslice' , JSON.stringify(state))
         },
         removeFromCart(state, action: PayloadAction<number>){
@@ -31,6 +43,16 @@ export const cartSlice = createSlice({
                     state.cart.splice(itemIndex, 1);
                 }
             }
+            toast.error('❌ Rimosso', {
+                position: "bottom-left",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+                });
         }
 
 
