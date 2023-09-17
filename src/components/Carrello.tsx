@@ -19,7 +19,7 @@ const CartItem = ({ item }: { item: products }) => {
         <div className="ml-4">
           <h2 className="text-xl font-bold">{item.title}</h2>
           <p className="text-gray-700">Prezzo: {item.price}€</p>
-          <button onClick={() => handleRemoveFromCart(item.id)}>rimuovi</button> {/*da aggiungere funzione per rimuovere e stile btn  */}
+          <button className=' bg-red-500 hover:bg-red-600 text-white py-2 px-4 rounded' onClick={() => handleRemoveFromCart(item.id)}>Rimuovi</button>
         </div>
       </div>
       <p className="text-2xl font-bold">Quantità: {item.quantity}</p>
